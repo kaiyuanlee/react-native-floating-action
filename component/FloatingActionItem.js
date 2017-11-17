@@ -71,9 +71,46 @@ class FloatingActionItem extends Component {
   }
 
   renderButton() {
-    const { icon, color } = this.props;
+    const {
+      icon,
+      color,
+      text,
+      position,
+      elevation,
+      textElevation,
+      textBackground,
+      textColor
+    } = this.props;
 
     let iconStyle;
+    let TextView = null;
+
+    if (!isNil(text)) {
+      TextView = (
+        <View
+          key="text"
+          style={[
+            styles.textContainer,
+            styles[`${position}TextContainer`],
+            {
+              backgroundColor: textBackground,
+              elevation: textElevation || elevation
+            }]
+          }
+        >
+          <Text
+            style={[
+              styles.text,
+              {
+                color: textColor
+              }
+            ]}
+          >
+            {text}
+          </Text>
+        </View>
+      );
+    }
 
     if (icon && icon.uri) {
       iconStyle = styles.iconLogo;
@@ -84,8 +121,9 @@ class FloatingActionItem extends Component {
     return (
       <View key="button" style={[styles.button, { backgroundColor: color }]}>
         {
-          React.isValidElement(icon) ? icon : <Image style={iconStyle} source={icon} />
+          React.isValidElement(icon) ? icon : <Image style={iconStyle} source={icon} resizeMethod="resize" />
         }
+        {TextView}
       </View>
     );
   }
@@ -105,9 +143,9 @@ class FloatingActionItem extends Component {
 
     if (position === 'left') {
       components.push(this.renderButton());
-      components.push(this.renderText());
+      //components.push(this.renderText());
     } else if (position === 'right') {
-      components.push(this.renderText());
+      //components.push(this.renderText());
       components.push(this.renderButton());
     } else {
       components.push(this.renderButton());
@@ -153,26 +191,27 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   actionContainer: {
-    elevation: 0,
+    /*elevation: 0,*/
     flex: 1,
     flexDirection: 'row',
     paddingLeft: 10,
     paddingRight: 10,
-    paddingBottom: 8,
-    paddingTop: 8
+    paddingBottom: 5,
+    paddingTop: 5
   },
   leftActionContainer: {
-    paddingLeft: 38
+    paddingLeft: 20
   },
   rightActionContainer: {
-    paddingRight: 38
+    paddingRight: 15
   },
   centerActionContainer: {
     paddingLeft: 10,
     paddingRight: 10
   },
   textContainer: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 0,
+    /*
     shadowOpacity: 0.35,
     shadowOffset: {
       width: 0,
@@ -181,26 +220,28 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowRadius: 3,
     elevation: 5,
-    borderRadius: 4,
-    height: 22,
-    marginTop: 8
+    */
+    //borderRadius: 4,
+    height: 9,
+    //marginTop: 8
   },
   leftTextContainer: {
-    marginLeft: 14
+    //marginLeft: 14
   },
   rightTextContainer: {
-    marginRight: 14
+    //marginRight: 14
   },
   text: {
-    fontSize: 14,
-    lineHeight: 20
+    fontSize: 9,
+    //lineHeight: 20
   },
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    /*
     shadowOpacity: 0.35,
     shadowOffset: {
       width: 0,
@@ -209,17 +250,18 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowRadius: 3,
     elevation: 5
+    */
   },
   iconLogo: {
-    resizeMode: 'cover',
+    //resizeMode: 'cover',
     width: 40,
     height: 40,
     borderRadius: 20
   },
   icon: {
-    resizeMode: 'contain',
-    width: 20,
-    height: 20
+    /*resizeMode: 'contain',*/
+    width: 25,
+    height: 25
   }
 });
 
