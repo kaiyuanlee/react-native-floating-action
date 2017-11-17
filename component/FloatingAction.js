@@ -280,7 +280,7 @@ FloatingAction.defaultProps = {
 const styles = StyleSheet.create({
   actions: {
     position: 'absolute',
-    bottom: 85,
+    bottom: 61,
     zIndex: 10
   },
   rightActions: {
@@ -315,11 +315,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     overflow: 'hidden',
     zIndex: 2,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
+    /*
     shadowOpacity: 0.35,
     shadowOffset: {
       width: 0,
@@ -328,36 +329,37 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowRadius: 3,
     elevation: 5,
+    */
     position: 'absolute',
-    bottom: 30
+    bottom: 15,
   },
   button: {
     zIndex: 3,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center'
   },
   rightButton: {
-    right: 30
+    right: 20
   },
   leftButton: {
-    left: 30
+    left: 20
   },
   centerButton: {
     left: (DEVICE_WIDTH / 2) - 28
   },
   buttonTextContainer: {
-    borderRadius: 28,
-    width: 56,
-    height: 56,
+    borderRadius: 20,
+    width: 40,
+    height: 40,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   buttonIcon: {
-    resizeMode: 'contain'
+    /*resizeMode: 'contain'*/
   }
 });
 
