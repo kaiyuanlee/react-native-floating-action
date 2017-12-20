@@ -179,14 +179,14 @@ FloatingActionItem.propTypes = {
 
 FloatingActionItem.defaultProps = {
   color: '#1253bc',
-  elevation: 5,
+  /*elevation: 5,*/
   textColor: '#444444',
   textBackground: '#ffffff'
 };
 
 const styles = StyleSheet.create({
   container: {
-    elevation: 0,
+    /*elevation: 0,*/
     flex: 1,
     flexDirection: 'column'
   },
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     paddingRight: 10
   },
   textContainer: {
-    paddingHorizontal: 0,
+    padding: 0,
     /*
     shadowOpacity: 0.35,
     shadowOffset: {
@@ -224,6 +224,7 @@ const styles = StyleSheet.create({
     //borderRadius: 4,
     height: 9,
     //marginTop: 8
+    backgroundColor: 'red',
   },
   leftTextContainer: {
     //marginLeft: 14
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 9,
-    //lineHeight: 20
+    lineHeight: 9,
   },
   button: {
     alignItems: 'center',
